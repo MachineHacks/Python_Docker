@@ -8,7 +8,7 @@ WORKDIR /app
 COPY app_raw.py /app/main.py
 
 # Add requirements for Flask
-RUN echo "Flask==2.3.2" > requirements.txt
+RUN echo "Flask==2.2.5" > requirements.txt
 
 # Install Python dependencies
 RUN pip install --no-cache-dir -r requirements.txt
