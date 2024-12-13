@@ -21,4 +21,4 @@ EXPOSE 8000
 ENV PYTHONUNBUFFERED=1
 
 # Command to run the Flask application
-CMD ["python", "/app/main.py"]
+CMD ["python", "/app/app_raw.py"]
