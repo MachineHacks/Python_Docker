@@ -3,7 +3,7 @@ import requests
 
 app = Flask(__name__)
 
-@app.route('/upload', methods=['POST'])
+@app.route('/execute', methods=['POST'])
 def upload_raw_code():
     try:
         # Get raw text data from the request body
@@ -16,7 +16,7 @@ def upload_raw_code():
         print(f"Normalized R code to send to R API:\n{r_code}")
 
         # Send the R code to the R API
-        r_api_url = "http://localhost:5000/execute"  # R API endpoint
+        r_api_url = "http://rdocker_intial:5000/execute"  # R API endpoint
         headers = {'Content-Type': 'text/plain'}  # Raw text content type
         response = requests.post(r_api_url, data=r_code, headers=headers)
 
