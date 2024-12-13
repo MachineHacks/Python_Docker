@@ -7,8 +7,8 @@ WORKDIR /app
 # Copy the application script to the container
 COPY app_raw.py /app/main.py
 
-# Add requirements for Flask
-RUN echo "Flask==2.2.5" > requirements.txt
+# Add requirements for Flask and Requests
+RUN echo "Flask==2.2.5\nrequests==2.31.0" > requirements.txt
 
 # Install Python dependencies
 RUN pip install --no-cache-dir -r requirements.txt
