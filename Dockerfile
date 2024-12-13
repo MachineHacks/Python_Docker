@@ -5,7 +5,7 @@ FROM python:3.9-slim
 WORKDIR /app
 
 # Copy the current directory contents into the container at /usr/src/app
-COPY app_raw.py /app/app_raw.py
+COPY app_raw.py /app/main.py
 
 # Install any Python dependencies specified in requirements.txt
 # If no requirements.txt, this line can be omitted or ensure a dummy file exists
@@ -18,4 +18,4 @@ EXPOSE 8000
 ENV PYTHONUNBUFFERED=1
 
 # Command to run the application
-CMD ["python", "/app/app_raw.py"]
+CMD ["python", "/app/main.py"]
