@@ -5,7 +5,7 @@ FROM python:3.7-slim
 WORKDIR /app
 
 # Copy the application script to the container
-COPY app_raw.py /app/main.py
+COPY main.py /app/main.py
 
 # Add requirements for Flask and Requests
 RUN echo "Flask==2.2.5\nrequests==2.31.0" > requirements.txt
