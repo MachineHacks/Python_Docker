@@ -30,8 +30,9 @@ def upload_raw_code():
 
 
 if __name__ == '__main__':
-    app.run(debug=True, port=8000)
+    app.run(debug=True, port=8000, host="0.0.0.0")  # Added host parameter
 
+# Second Flask app
 from flask import Flask
 import logging
 from logging import FileHandler
@@ -44,11 +45,11 @@ app.logger.addHandler(handler)
 
 @app.route('/')
 def index():
-	return 'Hello IIS from Flask'
+    return 'Hello IIS from Flask'
 
 @app.route('/Hello')
 def hello_world():
-	return 'Hello World!'
-	
+    return 'Hello World!'
+    
 if __name__ == '__main__':
-	app.run()
+    app.run(port=8000, host="0.0.0.0")  # Added host parameter
