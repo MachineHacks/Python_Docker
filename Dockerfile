@@ -1,21 +1,23 @@
-# Use an official Python runtime as a parent image
-FROM python:3.9-slim
+# Use Python 3.7-slim as the base image
+FROM python:3.7-slim
 
 # Set the working directory in the container
 WORKDIR /app
 
-# Copy the current directory contents into the container at /usr/src/app
+# Copy the application script to the container
 COPY app_raw.py /app/main.py
 
-# Install any Python dependencies specified in requirements.txt
-# If no requirements.txt, this line can be omitted or ensure a dummy file exists
-RUN pip install --no-cache-dir -r requirements.txt || echo "No requirements.txt found"
+# Add requirements for Flask
+RUN echo "Flask==2.3.2" > requirements.txt
 
-# Expose the port the app runs on
+# Install Python dependencies
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Expose the port the Flask app will run on
 EXPOSE 8000
 
 # Define environment variables (optional)
 ENV PYTHONUNBUFFERED=1
 
-# Command to run the application
+# Command to run the Flask application
 CMD ["python", "/app/main.py"]
